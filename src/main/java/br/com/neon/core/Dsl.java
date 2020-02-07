@@ -236,4 +236,12 @@ public class Dsl {
 
     }
 
+    /*********** Lista ***************/
+    public void varerLista(){
+        List <WebElement> lista = getDriver().findElements(By.cssSelector("a.question-search__result-link.col h3"));
+        for(WebElement texto : lista){
+            String s = texto.getText();
+            System.out.println(s);
+        }
+    }
 }

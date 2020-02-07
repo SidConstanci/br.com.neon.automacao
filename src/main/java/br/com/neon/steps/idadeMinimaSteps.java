@@ -49,8 +49,8 @@ public class idadeMinimaSteps {
 
     @Entao("^devo conseguir validar o resultado da pergunta$")
     public void devo_conseguir_validar_o_resultado_da_pergunta() throws Throwable {
-        dsl.esperaExplicita(10,By.cssSelector("div.question-search__result-boxes.row h3"));
-        Assert.assertEquals("90 resultados para: Qual é a idade mínima para abrir uma conta Neon?", dsl.ObterTexto(By.cssSelector("div.col .question-search__search-counter")));
+        dsl.esperaExplicita(10,By.cssSelector("li.question-search__result-breadcrumb-type"));
+        Assert.assertEquals("Cancelamento", dsl.ObterTexto(By.cssSelector("li.question-search__result-breadcrumb-type")).contains("Cancelamento"));
     }
 
     @After(order = 1)

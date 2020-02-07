@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/Features/",
         glue = {"br.com.neon.steps"},
-        tags = {"@Test"},
+        tags = {"@Mensagen"},
         monochrome = true,
         dryRun = false,
         plugin = {"pretty",
