@@ -1,19 +1,11 @@
-package br.com.neon;
+package br.com.neon.apis;
 
 
-import io.restassured.http.ContentType;
-import io.restassured.response.ValidatableResponse;
-import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.json.Json;
 
-import java.util.List;
-
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.StringContains.containsString;
 
 public class testeAPIs {
 
@@ -22,13 +14,14 @@ public class testeAPIs {
         String uriBase = "https://swapi.co/api/films/";
 
         given()
-                .param("results", "episode_id").param("count",  "episode_id")
+                .param("results", "title").param("count", "episode_id")
                 .when()
                 .get(uriBase)
                 .then()
                 .log()
                 .all()
                 .assertThat().statusCode(200)
-                .body("count", is(7));
+                .body("count", is(7))
+                .body("title", equalTo("A New Hope"));
     }
 }

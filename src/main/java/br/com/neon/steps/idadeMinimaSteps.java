@@ -50,7 +50,7 @@ public class idadeMinimaSteps {
     @Entao("^devo conseguir validar o resultado da pergunta$")
     public void devo_conseguir_validar_o_resultado_da_pergunta() throws Throwable {
         dsl.esperaExplicita(10,By.cssSelector("li.question-search__result-breadcrumb-type"));
-        Assert.assertEquals("Cancelamento", dsl.ObterTexto(By.cssSelector("li.question-search__result-breadcrumb-type")).contains("Cancelamento"));
+        Assert.assertEquals("Cancelamento", dsl.ObterTexto(By.cssSelector("#content-wrapper div:nth-child(2) li:nth-child(3)")));
     }
 
     @After(order = 1)
