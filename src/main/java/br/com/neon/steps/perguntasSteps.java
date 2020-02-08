@@ -21,10 +21,10 @@ import java.util.concurrent.TimeUnit;
 import static br.com.neon.core.driverFactory.getDriver;
 import static br.com.neon.core.driverFactory.killDriver;
 
-public class idadeMinimaSteps {
+public class perguntasSteps {
     Dsl dsl;
 
-    public idadeMinimaSteps() {
+    public perguntasSteps() {
         this.dsl = new Dsl();
     }
 
