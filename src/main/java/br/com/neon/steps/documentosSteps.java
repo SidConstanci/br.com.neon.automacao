@@ -3,7 +3,15 @@ package br.com.neon.steps;
 import br.com.neon.core.Dsl;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static br.com.neon.core.driverFactory.getDriver;
 
 public class documentosSteps {
     Dsl dsl;
@@ -12,30 +20,35 @@ public class documentosSteps {
         this.dsl = new Dsl();
     }
 
-    @Quando("^clicar na aba \"([^\"]*)\"$")
-    public void clicar_na_aba(String arg1) throws Throwable {
-        dsl.ClicarBotao(By.cssSelector("li.header__nav-list-item a[href='/pejota']\""));
-
+    @Quando("^clicar na aba pejota$")
+    public void clicar_na_aba_pejota() throws Throwable {
+        dsl.ClicarBotao(By.cssSelector("li.header__nav-list-item a[href='/pejota']"));
     }
 
-    @Quando("^clicar no elemento \"([^\"]*)\"$")
-    public void clicar_no_elemento(String arg1) throws Throwable {
-        dsl.ClicarBotao(By.cssSelector("#content-wrapper p:nth-child(6) span a"));
-
+    @Quando("^clicar no botao ABRA SUA NEON PEJOTA$")
+    public void clicar_no_botao_ABRA_SUA_NEON_PEJOTA() throws Throwable {
+        dsl.espraInplicita(10, TimeUnit.SECONDS);
+        dsl.clicarBotaoIndex(By.cssSelector("li.feature-section__costumers-card span.feature-section__costumers-name"), 1);
     }
 
-    @Entao("^devo ser redirecinoado para a primeira etapa de cadastro$")
-    public void devo_ser_redirecinoado_para_a_primeira_etapa_de_cadastro() throws Throwable {
-
+    @Quando("^for redirecinoado para a primeira etapa de cadastro$")
+    public void for_redirecinoado_para_a_primeira_etapa_de_cadastro() throws Throwable {
+        dsl.espraInplicita(10, TimeUnit.SECONDS);
+        dsl.trocarJanela(1);
+        Assert.assertEquals("primeira etapa do cadastro", dsl.ObterTexto(By.cssSelector("div.grid-container.mobile-content h2")));
     }
 
-    @Entao("^clicar no elemento \"([^\"]*)\"$")
-    public void clicar_no_elemento(String arg1) throws Throwable {
+    @Entao("^clicar no elemento CONFERIR LISTA$")
+    public void clicar_no_elemento_CONFERIR_LISTA() throws Throwable {
+        dsl.ClicarBotao(By.cssSelector("div.text-center.mobile-button-wrapper button.button.hollow"));
+        dsl.espraInplicita(20, TimeUnit.SECONDS);
 
     }
 
     @Entao("^devo conseguir validar os documentos necessarios para abrir a conta$")
     public void devo_conseguir_validar_os_documentos_necessarios_para_abrir_a_conta() throws Throwable {
+        dsl.espraInplicita(20, TimeUnit.SECONDS);
+        Assert.assertEquals("Veja o que você vai precisar para abrir sua conta:", dsl.ObterTexto(By.cssSelector(".steppy__header h2")));
 
     }
 }

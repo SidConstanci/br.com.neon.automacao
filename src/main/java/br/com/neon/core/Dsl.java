@@ -180,6 +180,10 @@ public class Dsl {
         getDriver().switchTo().window(id);
     }
 
+    public void trocarJanela(int index){
+        getDriver().switchTo().window((String) getDriver().getWindowHandles().toArray()[index]);
+    }
+
     /*********** JS ***************/
 
     public Object ExecutarJS(String cmd, Object... param) {
@@ -242,11 +246,17 @@ public class Dsl {
     }
 
     /*********** Lista ***************/
-    public void varerLista(){
-        List <WebElement> lista = getDriver().findElements(By.cssSelector("a.question-search__result-link.col h3"));
+    public void varerLista(By by){
+        List <WebElement> lista = getDriver().findElements((by));
         for(WebElement texto : lista){
             String s = texto.getText();
             System.out.println(s);
         }
+    }
+
+    public List<WebElement> clicarBotaoIndex(By by, int index) {
+        List<WebElement> botoes = getDriver().findElements(by);
+        botoes.get(index).click();
+        return botoes;
     }
 }
