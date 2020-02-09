@@ -124,17 +124,19 @@ public class Dsl {
     /********* Textos ************/
 
     public String ObterTexto(By by) {
-        return getDriver().findElement(by).getText();
+        String text =  getDriver().findElement(by).getText();
+        System.out.println(text);
+        return text;
     }
 
     public String ObterTexto(String id) {
         return ObterTexto(By.id(id));
     }
 
-    public String ObterTexto(By by, int index){
-        String i = ObterTexto(by);
-        i.indexOf(index);
-        return i;
+    public String ObterTexto(By by, int index) {
+        String text = ObterTexto(by);
+        text.indexOf(index);
+        return text;
     }
 
     /********* Alerts ************/
@@ -180,8 +182,9 @@ public class Dsl {
         getDriver().switchTo().window(id);
     }
 
-    public void trocarJanela(int index){
-        getDriver().switchTo().window((String) getDriver().getWindowHandles().toArray()[index]);
+    public void trocarJanela(int index) {
+        getDriver().switchTo().window((String)
+                getDriver().getWindowHandles().toArray()[index]);
     }
 
     /*********** JS ***************/
@@ -235,23 +238,26 @@ public class Dsl {
     }
 
     /*********** Espera ***************/
-    public void espraInplicita(int time, TimeUnit unit){
+    public void espraInplicita(int time, TimeUnit unit) {
         getDriver().manage().timeouts().implicitlyWait(time, unit);
     }
 
-    public void esperaExplicita(int time, By by){
-        final WebDriverWait wait = new WebDriverWait(getDriver(),time);
-            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    public void esperaExplicita(int time, By by) {
+        final WebDriverWait wait = new WebDriverWait(getDriver(), time);
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 
     }
 
     /*********** Lista ***************/
-    public void varerLista(By by){
-        List <WebElement> lista = getDriver().findElements((by));
-        for(WebElement texto : lista){
-            String s = texto.getText();
-            System.out.println(s);
+    public List<WebElement> obterTextoLista(By by) {
+        List<WebElement> lista = getDriver().findElements((by));
+        System.out.println(lista.size());
+        for (WebElement WebElement : lista){
+            String texts = WebElement.getText();
+            System.out.println(texts);
         }
+        System.out.println(lista);
+        return lista;
     }
 
     public List<WebElement> clicarBotaoIndex(By by, int index) {

@@ -3,6 +3,7 @@ package br.com.neon.steps;
 import br.com.neon.core.Dsl;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
+import org.apache.poi.ss.formula.functions.T;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -41,14 +42,11 @@ public class documentosSteps {
     @Entao("^clicar no elemento CONFERIR LISTA$")
     public void clicar_no_elemento_CONFERIR_LISTA() throws Throwable {
         dsl.ClicarBotao(By.cssSelector("div.text-center.mobile-button-wrapper button.button.hollow"));
-        dsl.espraInplicita(20, TimeUnit.SECONDS);
-
     }
 
     @Entao("^devo conseguir validar os documentos necessarios para abrir a conta$")
     public void devo_conseguir_validar_os_documentos_necessarios_para_abrir_a_conta() throws Throwable {
-        dsl.espraInplicita(20, TimeUnit.SECONDS);
-        Assert.assertEquals("Veja o que você vai precisar para abrir sua conta:", dsl.ObterTexto(By.cssSelector(".steppy__header h2")));
-
+        dsl.ClicarBotao(By.id("signup-documents-panel-content-2-label"));
+        Assert.assertEquals("São válidos os documentos RG, CNH ou RNE (no caso de estrangeiros).", dsl.ObterTexto(By.cssSelector("#signup-documents-panel-content-2")));
     }
 }
