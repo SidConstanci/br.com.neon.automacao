@@ -1,24 +1,24 @@
 Projeto: AutomaçãoNeon
 
-Este projeto consiste em um teste para ingressar na area de QA no banco neon.
+Este projeto consiste em um teste para ingressar na área de QA no banco neon.
 
 Começando:
-Para execultar o projeto, será necessário instalar os seguintes programas:
+Para executar o projeto, será necessário instalar os seguintes programas:
 
- - JDK 12.0.1: Nescessario para executar o projeto.
- - Maven 3.6.1: Nescessario para construir a build do projeto.
- - IntelliJ IDE: Para desenvolvimento e execução do projeto.
+- JDK 12.0.1: Necessário para executar o projeto.
+- Maven 3.6.1: Necessário para construir a build do projeto.
+- IntelliJ IDE: Para desenvolvimento e execução do projeto.
 
 Desenvolvimento e execução:
-Para iniciar o projeto, é nescessario clonar o projeto do GitHub num diretorio de sua preferencia:
-    -cd "diretorio de sua preferencia"
-    -git clone git@github.com:SidConstanci/br.com.neon.automacao.git
+Para iniciar o projeto, é necessário clonar o projeto do GitHub no diretório de sua preferência:
+   -cd "diretório de sua preferência"
+   -git clone git@github.com:SidConstanci/br.com.neon.automacao.git
 
-Contrução:
-Para constuir o projeto com o Maven, execute os comando a baixo:
-    -mvn clean install
-O comando irá baixar todas as dependências do projeto e criar um diretorio target com os
-artefatos construidos, que incluem o arquivo jar do projeto.
+Construção:
+Para construir o projeto com o Maven, execute os comando abaixo:
+   -mvn clean install
+O comando irá baixar todas as dependências do projeto e criar um diretório target com os
+artefatos construídos, que incluem o arquivo jar do projeto.
 
 Configuração:
 Para executar o projeto, é necessário utilizar o IntelliJ, para que o mesmo identifique as dependências
@@ -27,4 +27,5 @@ um arquivo .classpath que irá informar qual a classe principal para a execuçã
 
 Teste:
 Para rodar os testes, utilize o comando abaixo:
-    -mvn test
+   -mvn test
+
