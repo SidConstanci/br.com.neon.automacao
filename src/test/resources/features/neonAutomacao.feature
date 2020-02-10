@@ -6,8 +6,8 @@ Funcionalidade: Realizar as validações dos testes propostos
   @Perguntas
   Cenario: Validação da respota da aba perguntas
     Dado que eu esteja na home da neon
-    Quando clico na aba "perguntas"
-    E preencho o campo busca com "Quero cancelar minha conta. Como faço?"
+    Quando clico na aba perguntas
+    E preencho o campo busca
     Entao devo conseguir validar o resultado da pergunta
 
   @Test
